@@ -24,6 +24,14 @@ Install the remaining requirements:
 - chromedriver https://chromedriver.chromium.org/downloads
 - geckodriver https://github.com/mozilla/geckodriver/releases
 
+**Note for Mac OS:**
+
+- To install chromedriver, run:
+  `brew install chromedriver`
+  
+- To re-install chromedriver, run:
+  `brew reinstall chromedriver`
+
 #### Start WebDriver Server
 
 - Download selenium server standalone [here](https://www.selenium.dev/downloads/)
@@ -34,6 +42,14 @@ Install the remaining requirements:
 ```
 java -jar selenium-server-standalone-{VERSION}.jar
 ```
+
+**Note for Mac OS:**
+
+- Install selenium server standalone using: `brew install selenium-server-standalone`
+- To have launchd start selenium-server-standalone now and restart at login:
+  `brew services start selenium-server-standalone`
+- Or, if you don't want/need a background service you can just run:
+  `selenium-server -port 4444`
 
 #### Run
 
@@ -67,4 +83,18 @@ python3 TestSuites/testsuite_html_report.py
 ```
 python3 TestSuitesRemote/testsuite.py
 python3 TestSuitesRemote/testsuite_html_report.py
+```
+
+##### Testing with test suite and generate allure report
+
+```
+
+py.test --alluredir=%allure_result_folder% TestSuites/testsuite.py
+```
+
+
+Start server
+
+```
+allure serve %allure_result_folder%
 ```

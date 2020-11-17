@@ -3,7 +3,7 @@ import sys
 import unittest
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-from TestData.test_data import TestData
+from TestData.test_data import Data
 
 sys.path.append(".")
 
@@ -63,4 +63,4 @@ class BaseTest(unittest.TestCase):
     try:
       return os.environ['BROWSER']
     except KeyError:
-      return TestData.BROWSER
+      return Data.BROWSER

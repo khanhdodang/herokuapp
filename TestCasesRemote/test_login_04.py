@@ -2,11 +2,10 @@ import sys
 
 sys.path.append(".")
 import unittest
-from selenium import webdriver
 from Pages.login_page import LoginPage
 from Pages.result_page import ResultPage
 from TestCasesRemote.base_test_remote import BaseTest
-from TestData.test_data import TestData
+from TestData.test_data import Data
 from Objects.account import Account
 
 
@@ -25,7 +24,7 @@ class HerokuAppLogin4(BaseTest):
     login_page = LoginPage(self.driver)
     self.assertTrue(login_page.is_title_matches())
 
-    account = Account(TestData.USERNAME, TestData.PASSWORD)
+    account = Account(Data.USERNAME, Data.PASSWORD)
     login_page.login_object(account)
     result_page = ResultPage(self.driver)
 

@@ -2,7 +2,8 @@ import os
 import sys
 import unittest
 from selenium import webdriver
-from TestData.test_data import TestData
+
+from TestData.test_data import Data
 
 sys.path.append(".")
 
@@ -20,8 +21,8 @@ class BaseTest(unittest.TestCase):
   @classmethod
   def tearDown(self):
     # To do the cleanup after test has executed.
-    self.driver.close()
     try:
+      self.driver.close()
       self.driver.quit()
     except Exception as e:
       pass
@@ -49,8 +50,9 @@ class BaseTest(unittest.TestCase):
     except Exception as msg:
       print("message: %s" % str(msg))
 
-  def get_browser(self):
+  def get_browser():
     try:
       return os.environ['BROWSER']
     except KeyError:
-      return TestData.BROWSER
+      print(Data.BROWSER)
+      return Data.BROWSER

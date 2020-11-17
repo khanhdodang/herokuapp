@@ -1,0 +1,3 @@
+allure-pytest
+selenium==3.141.0
+pytest

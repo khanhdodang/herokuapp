@@ -2,7 +2,6 @@ import os
 import sys
 
 sys.path.append(".")
-import unittest
 from Utils.HTMLTestRunner import *
 from TestCasesRemote.test_login_01 import HerokuAppLogin1
 from TestCasesRemote.test_login_02 import HerokuAppLogin2
@@ -20,7 +19,7 @@ login3 = unittest.TestLoader().loadTestsFromTestCase(HerokuAppLogin3)
 test_suite = unittest.TestSuite([login1, login2, login3])
 
 # open the report file
-outfile = open(dir + "/SeleniumPythonTestSummary.html", 'wb')
+outfile = open(dir + "/SeleniumPythonTestSummaryRemote.html", 'wb')
 
 # configure HTMLTestRunner options
 runner = HTMLTestRunner(stream=outfile, title='Test Report', description='Acceptance Tests')

@@ -6,24 +6,24 @@ from selenium import webdriver
 from Pages.login_page import LoginPage
 from Pages.result_page import ResultPage
 from TestCases.base_test import BaseTest
-from TestData.test_data import TestData
+from TestData.test_data import Data
 
 
 class HerokuAppLogin3(BaseTest):
   """A sample test class to show how page object works"""
 
   @classmethod
-  def setUp(self):
+  def setUp(cls):
     super().setUp()
 
   @classmethod
-  def tearDown(self):
+  def tearDown(cls):
     super().tearDown()
 
   @unittest.SkipTest
   def test_login_with_invalid_username_password(self):
     login_page = LoginPage(self.driver)
-    login_page.login(TestData.FAKE_USERNAME, TestData.FAKE_PASSWORD)
+    login_page.login(Data.FAKE_USERNAME, Data.FAKE_PASSWORD)
     result_page = ResultPage(self.driver)
 
     print(result_page.get_message())

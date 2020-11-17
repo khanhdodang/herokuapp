@@ -6,7 +6,7 @@ from selenium import webdriver
 from Pages.login_page import LoginPage
 from Pages.result_page import ResultPage
 from TestCases.base_test import BaseTest
-from TestData.test_data import TestData
+from TestData.test_data import Data
 
 
 class HerokuAppLogin2(BaseTest):
@@ -22,7 +22,7 @@ class HerokuAppLogin2(BaseTest):
 
   def test_login_with_invalid_username(self):
     login_page = LoginPage(self.driver)
-    login_page.login(TestData.FAKE_USERNAME, TestData.PASSWORD)
+    login_page.login(Data.FAKE_USERNAME, Data.PASSWORD)
     result_page = ResultPage(self.driver)
 
     print(result_page.get_message())
@@ -30,7 +30,7 @@ class HerokuAppLogin2(BaseTest):
 
   def test_login_with_invalid_password(self):
     login_page = LoginPage(self.driver)
-    login_page.login(TestData.USERNAME, TestData.FAKE_PASSWORD)
+    login_page.login(Data.USERNAME, Data.FAKE_PASSWORD)
     result_page = ResultPage(self.driver)
 
     print(result_page.get_message())
