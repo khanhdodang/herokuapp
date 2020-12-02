@@ -2,7 +2,6 @@ import sys
 
 sys.path.append(".")
 import unittest
-from selenium import webdriver
 from Pages.login_page import LoginPage
 from Pages.result_page import ResultPage
 from TestCases.base_test import BaseTest

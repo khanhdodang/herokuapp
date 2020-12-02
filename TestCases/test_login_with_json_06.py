@@ -9,7 +9,7 @@ from TestData.test_data import Data
 from Objects.account import Account
 
 
-class HerokuAppLogin5(BaseTest):
+class HerokuAppLogin6(BaseTest):
   """A sample test class to show how page object works"""
 
   @classmethod
@@ -22,12 +22,12 @@ class HerokuAppLogin5(BaseTest):
 
   def test_login(self):
     data = Data()
-    accounts = data.get_account_csv()
+    accounts = data.get_account_json()
 
     for account in accounts:
-      username = account[0]
-      password = account[1]
-      message = account[2]
+      username = account['username']
+      password = account['password']
+      message = account['message']
       account = Account(username, password)
 
       login_page = LoginPage(self.driver)
