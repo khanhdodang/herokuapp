@@ -1,11 +1,12 @@
 import os
 import sys
 import unittest
+
 from selenium import webdriver
 
 from TestData.test_data import Data
 
-sys.path.append(".")
+sys.path.append('.')
 
 
 # Base Class for the tests
@@ -27,32 +28,30 @@ class BaseTest(unittest.TestCase):
     except Exception as e:
       pass
 
-  def startBrowser(self, name="chrome"):
+  def startBrowser(self, name='chrome'):
     """
-    browsers，"firefox"、"chrome"、"ie"、"phantomjs"
+    browsers= firefox, chrome, ie, phantomjs
     """
     try:
-      if name.lower() == "firefox" or name.lower() == "ff":
-        print("start browser name :Firefox")
-        # return webdriver.Firefox(executable_path='')
+      if name.lower() == 'firefox' or name.lower() == 'ff':
+        print('start browser name :Firefox')
+        # return webdriver.Firefox(executable_path=r'')
         return webdriver.Firefox()
-      elif name.lower() == "chrome":
-        print("start browser name :Chrome")
+      elif name.lower() == 'chrome':
+        print('start browser name :Chrome')
+        # return webdriver.Chrome(executable_path=r'')
         return webdriver.Chrome()
-      elif name.lower() == "edge":
-        print("start browser name :Edge")
-        return webdriver.MicrosoftEdge()
-      elif name.lower() == "phantomjs":
-        print("start browser name :phantomjs")
+      elif name.lower() == 'phantomjs':
+        print('start browser name :phantomjs')
         return webdriver.PhantomJS()
       else:
         print("Not found this browser,You can use ‘firefox‘, ‘chrome‘, ‘ie‘ or ‘phantomjs‘")
+        return webdriver.Firefox()
     except Exception as msg:
-      print("message: %s" % str(msg))
+      print('message: %s' % str(msg))
 
   def get_browser():
     try:
       return os.environ['BROWSER']
-    except KeyError:
-      print(Data.BROWSER)
+    except:
       return Data.BROWSER

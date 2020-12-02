@@ -24,10 +24,10 @@ class HerokuAppLogin6(BaseTest):
     data = Data()
     accounts = data.get_account_json()
 
-    for account in accounts:
-      username = account['username']
-      password = account['password']
-      message = account['message']
+    for acc in accounts:
+      username = acc['username']
+      password = acc['password']
+      message = acc['message']
       account = Account(username, password)
 
       login_page = LoginPage(self.driver)

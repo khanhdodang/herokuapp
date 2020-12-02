@@ -24,10 +24,10 @@ class HerokuAppLogin5(BaseTest):
     data = Data()
     accounts = data.get_account_csv()
 
-    for account in accounts:
-      username = account[0]
-      password = account[1]
-      message = account[2]
+    for acc in accounts:
+      username = acc[0]
+      password = acc[1]
+      message = acc[2]
       account = Account(username, password)
 
       login_page = LoginPage(self.driver)
