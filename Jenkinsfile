@@ -1,13 +1,11 @@
 pipeline {
     agent any
-    environment {
-        CC = 'clang'
-    }
+
     stages {
         stage('Stage 1: Checkout') {
             steps {
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
-                checkout scm
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: '2f1c8efe-7033-426a-8c1c-2897cd65e2fe', url: 'https://github.com/khanhdodang/herokuapp.git']]])
             }
         }
         stage('Stage 2: Build') {
@@ -26,7 +24,7 @@ pipeline {
         stage('Stage 4: Deploy') {
             steps {
                 echo 'Deploying....'
-                sh 'mv Reports ~/Documents/NordicCoder/allureReports'
+                sh 'cp Reports/* ~/Documents/NordicCoder/allureReports/Reports/ '
             }
         }
     }
