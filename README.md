@@ -89,7 +89,7 @@ python3 TestSuitesRemote/testsuite_html_report.py
 
 ```
 
-py.test --alluredir=%allure_result_folder% TestSuites/testsuite.py
+python -m pytest --alluredir=%allure_result_folder% TestSuites/testsuite.py
 ```
 
 
