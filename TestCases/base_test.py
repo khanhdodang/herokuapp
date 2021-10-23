@@ -40,7 +40,7 @@ class BaseTest(unittest.TestCase):
       elif name.lower() == 'chrome':
         print('start browser name :Chrome')
         # return webdriver.Chrome(executable_path=r'')
-        return webdriver.Chrome(executable_path=r'/opt/homebrew/Caskroom/chromedriver/90.0.4430.24/chromedriver')
+        return webdriver.Chrome(executable_path=r'/opt/homebrew/bin/chromedriver')
       elif name.lower() == 'phantomjs':
         print('start browser name :phantomjs')
         return webdriver.PhantomJS()
